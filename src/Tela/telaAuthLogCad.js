@@ -6,7 +6,7 @@ import { View,
     TouchableOpacity,
     StyleSheet,
     Image,
-    Dimensions
+    Alert
 } from 'react-native'
 
 ImgBack = require('../../imgs/background.png')
@@ -47,12 +47,12 @@ export default class AuthLogCad extends Component{
                         value= {this.state.email}
                         onChangeText= {email => this.setState({email})}/>
 
-                    <TextInput placeholder = 'Senha' style ={styles.input}
+                    <TextInput  secureTextEntry = {true} placeholder = 'Senha' style ={styles.input}
                         value= {this.state.senha}
                         onChangeText= {senha=> this.setState({senha})}/>
 
                     {this.state.cadastroOuLogin &&
-                        <TextInput placeholder='Confirmar Senha'
+                        <TextInput  secureTextEntry={true} placeholder='Confirmar Senha'
                             style ={styles.input}
                         value= {this.state.confirmaSenha}
                         onChangeText= {confirmaSenha => this.setState({confirmaSenha})}/>
@@ -64,14 +64,6 @@ export default class AuthLogCad extends Component{
                             </View>
                         </TouchableOpacity>}
 
-                    
-                    {this.state.cadastroOuLogin &&
-                        <View>
-                            <Text style = {styles.fraseCad}>
-                                {this.state.fraseCadastro}
-                        </Text>
-                        </View>
-                    }
                 </View>
 
                 <View>
@@ -94,7 +86,7 @@ export default class AuthLogCad extends Component{
                         </TouchableOpacity>}
 
                     {this.state.cadastroOuLogin && 
-                        <TouchableOpacity onPress = { () => this.setState({fraseCadastro:'Cadastro realizado com sucesso'})}
+                        <TouchableOpacity onPress = { () => Alert.alert('Cadastro','Cadastro feito com sucesso.')}
                         
                         style = {styles.botao}>
                             <View>
