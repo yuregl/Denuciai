@@ -1,9 +1,20 @@
 import React, {Component} from 'react'
-import {View, StyleSheet, Image, TouchableOpacity, Text} from 'react-native'
+import {
+    View,
+    StyleSheet,
+    Image,
+    TouchableOpacity,
+    Text
+} from 'react-native'
 
 imgOcorrenciaSucesso = require('../../imgs/imgDenRealizada.png')
 
 export default class OcorrenciaSucesso extends Component{
+
+    sair = () =>{
+        this.props.navigation.navigate('Denunciar')
+    }
+
     render(){
         return(
             <View style = {styles.principal}>
@@ -12,7 +23,8 @@ export default class OcorrenciaSucesso extends Component{
                 </View>
 
                 <View>
-                    <TouchableOpacity style = {styles.botao}>
+                    <TouchableOpacity style = {styles.botao}
+                        onPress = {this.sair}>
                         <View>
                             <Text style = {styles.txtBotao}>
                                 Sair

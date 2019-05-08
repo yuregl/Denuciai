@@ -9,6 +9,7 @@ import { View,
     Alert
 } from 'react-native'
 
+
 ImgBack = require('../../imgs/background.png')
 ImgLogo = require('../../imgs/DenunciAI.png')
 
@@ -22,6 +23,11 @@ export default class AuthLogCad extends Component{
         senha:'',
         confirmaSenha:'',
         fraseCadastro:''
+    }
+
+    login = () =>{
+      
+        this.props.navigation.navigate('Denunciar')
     }
 
     render(){
@@ -68,7 +74,8 @@ export default class AuthLogCad extends Component{
 
                 <View>
                     {!this.state.cadastroOuLogin && 
-                        <TouchableOpacity  style= {styles.botao}>
+                        <TouchableOpacity  style= {styles.botao}
+                            onPress = {this.login}>
                             <View>
                                 <Text style = {styles.txtBotao}>
                                     Entrar

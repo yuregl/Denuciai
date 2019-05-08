@@ -16,12 +16,19 @@ imgCamera = require('../../imgs/btn-camera-50.png')
 imgVideo = require('../../imgs/btn-filmadora.png')
 imgLocal = require('../../imgs/local.png')
 
+
 export default class Denuncia extends Component{
     
     state = {
         tituloDenuncia: '',
         descDenuncia: '',
         Local: '',
+        dataDenuncia: '',
+        foto:''
+    }
+
+    fazerDenuncia = () =>{
+        this.props.navigation.navigate('OcorreSuc')
     }
 
     render(){
@@ -80,7 +87,8 @@ export default class Denuncia extends Component{
                     </View>
 
                     <View style = {styles.viewBotao}>
-                        <TouchableOpacity style = {styles.botao}>
+                        <TouchableOpacity style = {styles.botao}
+                            onPress={this.fazerDenuncia}>
                             <View>
                                 <Text style = {styles.txtBotao}>
                                     Denunciar
