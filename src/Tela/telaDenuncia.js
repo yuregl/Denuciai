@@ -6,10 +6,9 @@ import {
     TextInput,
     TouchableOpacity,
     ImageBackground,
-    Alert,
     StyleSheet,
-    CheckBox
 } from 'react-native'
+import {DrawerActions} from 'react-navigation'
 
 
 imgCamera = require('../../imgs/btn-camera-50.png')
@@ -38,6 +37,11 @@ export default class Denuncia extends Component{
                     <Text style = {styles.txtTitle}>
                         Denunciar
                     </Text>
+                    <TouchableOpacity onPress={() => this.props.navigation.dispatch(DrawerActions.openDrawer())}>
+                        <Text>
+                            Aqui!
+                        </Text>
+                    </TouchableOpacity>
                 </View>
                 <View style = {styles.desc}>
                     <Text style = {styles.desInicial}>Descrição</Text>
