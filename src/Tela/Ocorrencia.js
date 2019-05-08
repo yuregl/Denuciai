@@ -5,8 +5,11 @@ import {
     ScrollView,
     StyleSheet,
     Dimensions,
-    Image
+    Image,
+    TouchableOpacity
 } from 'react-native'
+
+
 
 export default class Ocorrencia extends Component{
     
@@ -14,8 +17,8 @@ export default class Ocorrencia extends Component{
         title:'Pichação Bancários',
         Rua:'Três ruas, 775',
         Data:'29 Outubro 2018',
-        foto: null,
-        descricao:'Foi encotrado uma uma pichação nas três ruas no bancáriosaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa',
+        foto: require('../../imgs/transferir.png'),
+        descricao:'Foi encotrado uma uma pichação nas três ruas no bancários',
         andamento: false
     }
     
@@ -43,7 +46,7 @@ export default class Ocorrencia extends Component{
                 </View>
                     
                 <View style = {styles.viewImagem}>
-                    <Image/>
+                    <Image source = {this.state.foto} style= { styles.imagem}/>
                 </View>
 
                 <View style = {styles.TitleDesc} >
@@ -55,7 +58,29 @@ export default class Ocorrencia extends Component{
                         <Text style = {styles.textDesc}>{this.state.descricao}</Text>
                     </ScrollView>
                 </View>
-                    
+
+                <View>
+                    { 
+                        this.state.andamento === true ? 
+                            <Text style = {{fontSize:18, color:'#3EC28F'}}>Processada</Text> :
+                            <Text style = {{fontSize:18, color:'#3EC28F'}}>Em andamento</Text>
+                    }
+                </View>
+                <View>
+                    <Text style = {{fontSize:18, color:'#F2994A'}}>
+                        Encaminhada para os orgãos responsáveis
+                    </Text>
+                </View>
+
+                <View style = {styles.viewBotao}>
+                    <TouchableOpacity style = {styles.botao}>
+                        <View>
+                            <Text style = {styles.txtBotao}>
+                                Remover Denúncia
+                            </Text>
+                        </View>
+                    </TouchableOpacity>
+                </View>
                 
                 
 
@@ -111,8 +136,27 @@ const styles = StyleSheet.create({
     viewDoScroll:{
         width: '90%',
         marginTop: 10,
-        borderWidth: 5,
-        borderColor: 'green'
+        height: Dimensions.get('window').width/4
+    },
+    viewBotao:{
+        justifyContent: 'center',
+        alignItems: 'center',
+        marginTop: 10
+    },
+    botao:{
+        backgroundColor: '#FF473A',
+        alignItems: 'center',
+        padding: 15,
+        width: 300,
+        marginBottom: 10,
+    },
+    txtBotao:{
+        fontSize: 13,
+        color: 'white'
+    },
+    imagem:{
+        width: Dimensions.get('window').width * 8/9 ,
+        height: Dimensions.get('window').width /2,
     }
     
 })

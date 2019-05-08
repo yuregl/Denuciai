@@ -28,7 +28,7 @@ const MenuConfig = {
         labelStyle:{
             fontWeight: 'bold',
             fontSize: 20 ,
-            color:'#FFF'
+            color:'black',
         },
         style:{
             backgroundColor: '#000'
