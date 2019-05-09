@@ -92,7 +92,7 @@ export default class Denuncia extends Component{
 
                     <View style = {styles.viewBotao}>
                         <TouchableOpacity style = {styles.botao}
-                            onPress={this.fazerDenuncia}>
+                            onPress = {this.fazerDenuncia}>
                             <View>
                                 <Text style = {styles.txtBotao}>
                                     Denunciar
